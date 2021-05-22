@@ -1,0 +1,62 @@
+page-launch {
+
+}
+.Launch {
+	// background: linear-gradient(to right, rgba(255,0,0,0), rgba(232,44,42,1)), url("../../img/splash.png") no-repeat center, rgba(232,44,42,1);
+	background-size: 100% 100%;
+
+	.launch-upper-container{
+		height: 60vh;
+		width: 100%;
+	}
+	.launch-lower-container{
+		height: 40vh;
+		width: 100%;
+		.pull-left{
+			margin: 5px;
+			left: 5px;
+			float: left;
+		}
+		.pull-right{
+			right: 5px;
+			margin: 5px;
+			float: right;
+		}
+	}
+}
+.outline{
+	border-width: 1px;
+	border-style: dashed;
+}
+
+.blue-border{
+	border-color: blue;
+}
+
+.red-border{
+	border-color: red;
+}
+.green-border{
+	border-color: green;
+}
+.spinner {
+	-webkit-animation-name: spinner;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-duration: 6s;
+
+	animation-name: spinner;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-duration: 6s;
+
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.spinner:hover {
+	-webkit-animation-play-state: paused;
+	animation-play-state: paused;
+}

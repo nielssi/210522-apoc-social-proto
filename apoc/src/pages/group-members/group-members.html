@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Group Members</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="GroupMembers">
+  <ion-grid>
+    <ion-row wrap>
+        <ion-card *ngFor="let member of activeGroup.members" class="group-member-card" (click)="tappedGroupMember(member)">
+          <ion-card-header>
+            <h2>{{member.name}}</h2>
+          </ion-card-header>
+          <ion-card-content>
+            {{member.bio}}
+          </ion-card-content>
+        </ion-card>
+    </ion-row>
+  </ion-grid>
+</ion-content>

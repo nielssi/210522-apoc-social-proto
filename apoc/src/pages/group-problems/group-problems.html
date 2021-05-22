@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Group Problems</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item-group>
+
+    <ion-card *ngIf="groupProblems.length==0">
+      <ion-card-content>
+        <ion-row>
+          <ion-col center text-center>
+              <ion-icon name='ios-sad-outline' color="primary"><p>No Problems Have Been Recommended for This Group</p></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-item *ngFor="let problem of groupProblems; let i = index;" >
+        <ion-card (click)="tappedProblem(problem)" (press)="didPressProblem(problem, i)">
+          <ion-item light class="theme-problem-header">
+
+            <h2>Problem {{problem.gp_id}}</h2>
+            <p>Contributor: <b>{{problem.contributor}}</b></p>
+            <ion-badge item-right>{{problem.updated_at | timeAgo}}</ion-badge>
+
+          </ion-item>
+          <img [src]="getLocalAssetUrl(problem.gp_id)">
+          <ion-row class="theme-problem-footer">
+            <ion-col  center text-center  width-33>
+              <button ion-button light clear small  text-center>
+                <p style="color: white;">
+                  <ion-icon name='ios-speedometer-outline' color="primary"></ion-icon> {{problem.difficulty}}
+                </p>
+              </button>
+            </ion-col>
+            <ion-col  center light text-center  width-33>
+              <button ion-button light clear small  text-center>
+                <p style="color: white;">
+                  <ion-icon name='ios-chatboxes-outline' color="primary"></ion-icon> {{problem.comments.length}}
+                </p>
+              </button>
+            </ion-col>
+            <ion-col center text-center width-33>
+              <ion-note>
+                <p style="color: white;">
+                  <ion-icon name='ios-glasses-outline' color="primary"></ion-icon> {{problem.views}} views
+                </p>
+              </ion-note>
+            </ion-col>
+          </ion-row>
+
+        </ion-card>
+      </ion-item>
+  </ion-item-group>
+</ion-content>

@@ -1,0 +1,111 @@
+<!--
+  Generated template for the Settings page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="Settings">
+  <ion-list no-lines>
+
+    <ion-list-header>
+      App Preferences
+    </ion-list-header>
+
+    <ion-item text-wrap>
+      <ion-toggle danger checked="false" [(ngModel)]="shake_for_random" (ngModelChange)="didToggleShakeForRandomQuestion(shake_for_random)"></ion-toggle>
+      <ion-label>
+        <h2>Shake for random question</h2>
+        <p>This option allows to automatically switch to a random question when the device is shaken.</p>
+      </ion-label>
+    </ion-item>
+  <!--
+    <ion-item>
+      <ion-toggle checked="false"></ion-toggle>
+      <ion-label>
+        Shake For Random Quiz
+      </ion-label>
+    </ion-item>
+  -->
+  </ion-list>
+  <ion-list radio-group no-lines [(ngModel)]="push_preferences" (ngModelChange)="pushPreferencesChanged()">
+    <ion-list-header>
+      Push Notification Preferences
+    </ion-list-header>
+
+    <ion-item text-wrap>
+      <ion-label>
+        <h2>All updates</h2>
+        <p>You receive all updates as push notifications, including: new problems, group activity and social interactions.</p>
+      </ion-label>
+      <ion-radio danger checked="true" value="all_updates" ></ion-radio>
+    </ion-item>
+
+
+    <ion-item text-wrap>
+      <ion-label>
+        <h2>Group and Problem updates</h2>
+        <p>You receive push notifications when group activity occurs or new problems are added.</p>
+      </ion-label>
+      <ion-radio danger value="group_and_problem_updates" ></ion-radio>
+    </ion-item>
+
+
+    <ion-item text-wrap>
+      <ion-label>
+        <h2>Problem updates</h2>
+        <p>You only receive push notifications when new problems are added.</p>
+      </ion-label>
+      <ion-radio danger value="problem_updates" ></ion-radio>
+    </ion-item>
+
+    <ion-item text-wrap>
+      <ion-label>
+        <h2>No updates</h2>
+        <p>You do not receive any push notifications from apoc.</p>
+      </ion-label>
+      <ion-radio danger value="no_updates" ></ion-radio>
+    </ion-item>
+  </ion-list>
+  <ion-list radio-group no-lines [(ngModel)]="share_activity_publicly" (ngModelChange)="privacyPreferencesChanged()">
+    <ion-list-header>
+      Privacy Preferences
+    </ion-list-header>
+
+    <ion-item text-wrap>
+      <ion-label>
+        <h2>Share your activity</h2>
+        <p>Problems you have commented on, problems and comments you have rated, and any problems you have marked as solved will be shared in the global feed.</p>
+      </ion-label>
+      <ion-radio danger checked="true" value="true" ></ion-radio>
+    </ion-item>
+
+    <ion-item text-wrap>
+      <ion-label dark>
+        <h2>Don't share activity</h2>
+        <p>This option will exclude your activity from the global feed, entirely.</p>
+      </ion-label>
+      <ion-radio danger value="false" ></ion-radio>
+    </ion-item>
+  </ion-list>
+  <ion-list no-lines>
+    <ion-list-header>
+      Cloud Preferences
+    </ion-list-header>
+    <ion-item text-wrap>
+      <ion-label>
+        <h2>Offline Availability for Problems</h2>
+        <p>You can download all existing problem data while in wifi as to reduce loading times and data costs by activating this option.</p>
+      </ion-label>
+      <ion-toggle danger checked="true" item-right disabled></ion-toggle>
+    </ion-item>
+  </ion-list>
+</ion-content>

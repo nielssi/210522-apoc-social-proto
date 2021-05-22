@@ -1,0 +1,89 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+
+.theme-left-menu{
+	background-color: rgba(33, 33, 33,1);
+	background: rgba(33, 33, 33,1);
+}
+
+.user-avatar-item{
+	border-color: none;
+	background-color: rgba(33, 33, 33,1);
+	img{
+		width: 150px;
+		height: 150px;
+		border-radius: 50%;
+		border-style:solid;
+		border-color:black;
+		border-width: 5px;
+	}
+}
+
+.theme-list{
+	background-color: rgba(33, 33, 33,1);
+	background: rgba(33, 33, 33,1);
+	.theme-bio-item{
+		text-align: center;
+		border-color: transparent;
+		color: white;
+		h2{
+			color: white;
+		}
+		p{
+			color:rgba(255,98,99, 1);
+		}
+
+	}
+
+}
+
+.theme-bio-divider{
+	height: 5px !important;
+	background-color: rgba(33, 33, 33,1);
+	background: rgba(33, 33, 33,1);
+}
+
+.theme-menu-item{
+	color:white;
+	text-align:left;
+	p{
+		color:white;
+	}
+}
+
+.center {
+    margin: auto;
+    border: 3px solid green;
+    padding: 10px;
+}
+
+.theme-problem-header{
+	background: rgba(255,98,99, 0.9);
+	color: white !important;
+	p{
+		color: white;
+	}
+	h2{
+		color: white;
+	}
+}
+.theme-problem-footer{
+	background: rgba(33, 33, 33,0.9);
+	color: white;
+
+}

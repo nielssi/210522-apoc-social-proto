@@ -1,0 +1,81 @@
+<!--
+  Generated template for the Login page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content padding class="Login splash-background">
+
+  <ion-grid>
+    <ion-row center style="min-height: 50px;">
+      <button ion-button clear mini color="primary" (click)="tappedBackButton()" style="position:absolute; top:0px; margin-left:5px;">Back</button>
+    </ion-row>
+  </ion-grid>
+  <ion-list class="transparent" no-lines>
+
+      <div class="centered">
+        <button ion-button full danger icon-left class="text-center" (click)="tappedSignupWithGoogle()">
+          <ion-icon danger name="logo-google"></ion-icon>
+            Sign in with Google
+        </button>
+      </div>
+
+      &nbsp;
+
+      <div class="centered">
+        <button ion-button full danger icon-left (click)="tappedSignupWithFacebook()">
+          <ion-icon danger name="logo-facebook"></ion-icon>
+            Sign in with Facebook
+        </button>
+
+      </div>
+      <br/>
+      <div class="centered">
+        or
+      </div>
+
+  </ion-list>
+  <ion-grid>
+
+    <ion-row center>
+      <ion-col>
+        <form #emailSigninForm="ngForm" (ngSubmit)="submitEmailSigninForm(emailSigninForm)" class="transparent" novalidate>
+          <ion-list class="transparent" ngControlGroup="signInData">
+            <ion-item class="transparent">
+              <ion-label floating>Email</ion-label>
+              <ion-input type="email" class="transparent" name="email" ngControl="email" [(ngModel)]="userSignIn.email" appEmailValidator></ion-input>
+            </ion-item>
+
+            <ion-item class="transparent">
+              <ion-label floating>Password</ion-label>
+              <ion-input type="password" class="transparent" name="password" ngControl="password" [(ngModel)]="userSignIn.password" required></ion-input>
+            </ion-item>
+            </ion-list>
+            &nbsp;
+            <button danger full ion-button type="submit">
+              Sign in
+            </button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-list>
+    <ion-item class="transparent" >
+      <div class="centered">
+        <button danger ion-button outline (click)="tappedDontHaveAnAccount()" >
+          Don't have an account yet?
+        </button>
+      </div>
+    </ion-item>
+    <ion-item class="transparent" >
+      <div class="centered">
+        <p *ngIf="showForgotPassword">Forgot Your Password?</p>
+        <button danger ion-button outline (click)="tappedBeginResetPasswordButton()" >
+          Tap here to reset your password
+        </button>
+      </div>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons start>
+      <button ion-button (click)="tappedBackButton()">
+        <ion-icon name="back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{ activeGroup ? activeGroup.name : '' }}</ion-title>
+    <ion-buttons end>
+      <button ion-button clear (click)="tappedJoinGroup(activeGroup)" *ngIf="!isMember">Join</button>
+      <button ion-button clear (click)="tappedLeaveGroup(activeGroup)" *ngIf="isMember">Leave</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-card >
+    <ion-card-header>
+      <h2>Group News: </h2>
+    </ion-card-header>
+    <ion-card-content>
+      <p *ngIf="!isOwner">
+        {{ activeGroup ? (activeGroup.sticky_note=='' ? 'Welcome to '+activeGroup.name : activeGroup.sticky_note) : 'Welcome to '+activeGroup.name }}
+      </p>
+      <p *ngIf="isOwner">
+        {{ activeGroup ? (activeGroup.sticky_note=='' ? 'Tap below to set group message.' : '') : '' }}
+      </p>
+      <ion-textarea *ngIf="isOwner" [(ngModel)]="activeGroup.sticky_note" (change)="updateGroupNews(activeGroup.sticky_note)"></ion-textarea>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-list>
+      <button ion-item (click)="tappedViewGroupProblems()">
+        <ion-icon name="md-list" item-left></ion-icon>
+        Problems {{activeGroup.problems.length}}
+      </button>
+      <button ion-item (click)="tappedViewGroupMembers()">
+        <ion-icon name="ios-people" item-left></ion-icon>
+        Members {{activeGroup.members.length}}
+      </button>
+    </ion-list>
+
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <h2>Group Stats</h2>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        Average Difficulty Rating: {{averageProblemDifficultyRating}}
+      </p>
+      <p>
+        Average Problem Completion Rate: {{averageCompletionRate}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

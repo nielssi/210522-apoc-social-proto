@@ -1,0 +1,96 @@
+<ion-menu [content]="content" (ionOpen)="leftMenuOpened()" (ionClose)="leftMenuClosed()" id="authenticated-left">
+  <ion-content class="theme-left-menu" >
+    <button ion-button menuClose clear (click)="tappedEditProfile()">
+      Edit
+    </button>
+    <div class="theme-list">
+      <ion-list no-lines>
+        <ion-item class="theme-bio-item" text-wrap menuClose (click)="tappedEditProfile()">
+          <h2>{{ Profile.name }}</h2>
+          <p>{{ Profile.bio }}</p>
+        </ion-item>
+        <ion-item class="theme-bio-item" style="text-align: center;" text-wrap text-center menuClose (click)="tappedEditProfile()">
+          <p>
+            <ion-badge item-right danger >
+              <ion-icon name="ios-checkmark"></ion-icon>
+              {{Profile.solvedProblems.length}}
+            </ion-badge>
+
+            <ion-badge item-right danger >
+              <ion-icon name="bookmark"></ion-icon>
+              {{Profile.bookmarks.length}}
+            </ion-badge>
+
+            <ion-badge item-right danger >
+              <ion-icon name="people"></ion-icon>
+              {{Profile.groups.length}}
+            </ion-badge>
+
+            <ion-badge item-right danger >
+              <ion-icon name="glasses"></ion-icon>
+              {{Profile.views ? Profile.views : 0 }}
+            </ion-badge>
+          </p>
+        </ion-item>
+
+        <ion-item menuClose="left" class="theme-menu-item item-icon-left item-icon-right" *ngFor="let p of pagesGroup1" (click)="openPage(p)">
+            <ion-icon name="{{p.icon}}" item-left></ion-icon>
+            <h2>{{p.title}}</h2>
+            <ion-icon name="arrow-forward" item-right></ion-icon>
+        </ion-item>
+
+        &nbsp;
+
+        <ion-item menuClose="left" class="theme-menu-item item-icon-left" *ngFor="let p of pagesGroup2" (click)="openPage(p)">
+            <ion-icon name="{{p.icon}}" item-left></ion-icon>
+            <h2>{{p.title}}</h2>
+            <ion-icon name="arrow-forward" item-right></ion-icon>
+        </ion-item>
+
+        &nbsp;
+
+        <ion-item menuClose="left" class="theme-menu-item item-icon-left" *ngFor="let p of pagesGroup3" (click)="openPage(p)">
+            <ion-icon name="{{p.icon}}" item-left></ion-icon>
+            <h2>{{p.title}}</h2>
+            <ion-icon name="arrow-forward" item-right></ion-icon>
+        </ion-item>
+
+        <ion-item menuClose="left" class="theme-menu-item item-icon-left" *ngFor="let p of pagesGroup4" (click)="openSignOutPage(p)">
+            <ion-icon name="{{p.icon}}" item-left></ion-icon>
+            <h2>{{p.title}}</h2>
+            <ion-icon name="arrow-forward" item-right></ion-icon>
+        </ion-item>
+
+      </ion-list>
+    </div>
+  </ion-content>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+
+
+<ion-menu type="overlay" side="right" [content]="content" (ionOpen)="rightMenuOpened()" (ionClose)="rightMenuClosed()" id="authenticated-right">
+  <ion-toolbar color="primary">
+    <ion-title primary>
+      Global Feed
+    </ion-title>
+  </ion-toolbar>
+
+  <ion-content scroll="true" has-header="true">
+
+    <!--the spinner  -- -- appears when the problems haven't loaded for any reason -->
+    <div *ngIf="globalActivity.length === 0" style="height: 100%;">
+      <ion-spinner style="left: 50%; top: 50%;"></ion-spinner>
+    </div>
+
+    <!--the the list of the problems -- -- appear when they exist only-->
+    <ion-list *ngIf="globalActivity.length > 0" inset style="margin-top: 57px;">
+      <ion-item class="item-text-wrap" menuClose="right" *ngFor="let a of globalActivity" (click)="tappedItemInHistory(a);">
+          <p>{{a.title}} <span *ngIf="a.problem">{{a.problem.name}}</span></p>
+          <ion-badge>{{a.created_at | timeAgo}}</ion-badge>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-menu>

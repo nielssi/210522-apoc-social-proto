@@ -1,0 +1,68 @@
+<!--
+  Generated template for the RecommendationsDifficulty page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button icon-only menuToggle="left">
+      <ion-icon light name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Recommendations</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngIf="recommendedProblems.length < 1">
+    <ion-card-content>
+      <ion-row>
+        <ion-col center text-center>
+            <ion-icon name='ios-sad-outline' color="primary"><p>You do not have enough activity within the app to make recommendations based on problem difficulty.</p></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngFor="let problem of recommendedProblems; let i = index;" (click)="tappedProblem(problem)">
+    <ion-item class="theme-problem-header">
+      <h2>Problem {{problem.gp_id}}</h2>
+      <p>Contributor: <b>{{problem.contributor}}</b></p>
+      <ion-badge item-right>{{problem.updated_at | timeAgo}}</ion-badge>
+    </ion-item>
+    <ion-card-content>
+      <img [src]="getLocalAssetUrl(problem.gp_id)">
+      <span *ngIf="activeKeywords.length > 0" >
+          <ion-badge secondary *ngFor="let keyword of problem.keywords">{{keyword}}</ion-badge>
+      </span>
+      <p *ngIf="activeKeywords.length > 0" [innerHTML]="problem.text  | sanitizeHtml" ></p>
+    </ion-card-content>
+    <ion-row class="theme-problem-footer">
+      <ion-col  center text-center  width-33>
+        <button ion-button light clear small  text-center>
+          <p style="color: white;">
+            <ion-icon name='ios-speedometer-outline' color="primary"></ion-icon> {{problem.difficulty}}
+          </p>
+        </button>
+      </ion-col>
+      <ion-col  center light text-center  width-33>
+        <button ion-button light clear small  text-center>
+          <p style="color: white;">
+            <ion-icon name='ios-chatboxes-outline' color="primary"></ion-icon> {{problem.comments.length}}
+          </p>
+        </button>
+      </ion-col>
+      <ion-col center text-center width-33>
+        <ion-note>
+          <p style="color: white;">
+            <ion-icon name='ios-glasses-outline' color="primary"></ion-icon> {{problem.views}} views
+          </p>
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

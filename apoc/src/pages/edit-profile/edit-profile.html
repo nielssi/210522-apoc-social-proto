@@ -1,0 +1,45 @@
+<!--
+  Generated template for the EditProfile page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Edit Profile</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="tappedEditProfilePhoto()">
+        <ion-icon name='md-reverse-camera' color="light"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <img height="200" src="http://lorempixel.com/200/100/sports" *ngIf="!userProfile.avatar">
+    <img height="200" [src]="userProfile.avatar" *ngIf="userProfile.avatar">
+    <div class="card-title">{{userProfile.name}}</div>
+    <div class="card-subtitle">{{userProfile.bio}}</div>
+
+    <ion-item>
+      <ion-icon name="ios-person-outline" item-left large></ion-icon>
+      <ion-label floating>Choose a Username</ion-label>
+      <ion-input type="text" [(ngModel)]="userProfile.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="ios-create-outline" item-left large></ion-icon>
+      <ion-label floating>Add a Short Description</ion-label>
+      <ion-input type="tag_line" [(ngModel)]="userProfile.bio"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <button primary clear item-right ion-button (click)="tappedUpdateProfile()">
+        Save
+      </button>
+    </ion-item>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,8 @@
+{
+  "name": "apoc",
+  "app_id": "bd445cc1",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

@@ -1,0 +1,40 @@
+<ion-content padding>
+  <ion-grid>
+    <ion-row center style="min-height: 150px;">
+      <button ion-button clear mini color="primary" (click)="tappedBackButton()" style="position:absolute; top:0px; margin-left:5px;">Back</button>
+
+    </ion-row>
+    <ion-row center>
+      <ion-col>
+        <div class="signup-lower-container">
+          <ion-list class="transparent" no-lines>
+              <div class="centered">
+                <button ion-button full danger icon-left (click)="tappedSignupWithEmail()" >
+                  <ion-icon danger name="mail"></ion-icon>
+                  Sign up with Email
+                </button>
+              </div>
+
+              &nbsp;
+
+              <div class="centered">
+                <button ion-button full danger icon-left class="text-center" (click)="tappedSignupWithGoogle()">
+                  <ion-icon danger name="logo-google"></ion-icon>
+                    Sign up with Google
+                </button>
+              </div>
+
+              &nbsp;
+
+              <div class="centered">
+                <button ion-button full danger icon-left (click)="tappedSignupWithFacebook()">
+                  <ion-icon danger name="logo-facebook"></ion-icon>
+                    Sign up with Facebook
+                </button>
+              </div>
+          </ion-list>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

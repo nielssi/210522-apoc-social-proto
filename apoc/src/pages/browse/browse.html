@@ -1,0 +1,15 @@
+<!--
+  Generated template for the Browse page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content padding class="Browse">
+	<ion-list>
+    	<ion-searchbar  [(ngModel)]="filterQuery" debounce="800" (ionInput)="searchCategories($event)" (ionClear)="clearCategorySearch()"></ion-searchbar>
+		<ion-item-divider light>A</ion-item-divider>
+		<ion-item *ngFor="let category of categories">
+			{{category.title}}
+		</ion-item>
+	</ion-list>
+</ion-content>

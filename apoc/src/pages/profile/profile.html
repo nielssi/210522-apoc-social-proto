@@ -1,0 +1,106 @@
+<!--
+  Generated template for the Profile page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar danger>
+    <button menuToggle>
+      <ion-icon danger name="menu"></ion-icon>
+    </button>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="Profile">
+
+  <ion-card>
+
+    <img src="http://ionicframework.com/dist/preview-app/www/img/advance-card-map-madison.png">
+
+  <div padding>
+    <ion-segment danger [(ngModel)]="section">
+      <ion-segment-button value="friends">
+        Friends (2)
+      </ion-segment-button>
+      <ion-segment-button value="messages">
+        Messages (1)
+      </ion-segment-button>
+      <ion-segment-button value="notifications">
+        Notifications (10)
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="section">
+    <ion-list *ngSwitchCase="'friends'">
+      <ion-item class="item-text-wrap" menuClose="right">
+        <ion-thumbnail item-left>
+          <img src='http://www.chicagonow.com/listing-beyond-forty/files/2013/02/Google-Plus-Generic-Avatar-Red.jpg'>
+        </ion-thumbnail>
+        <h2>Jesse</h2>
+      </ion-item>
+      <ion-item class="item-text-wrap" menuClose="right">
+        <ion-thumbnail item-left>
+          <img src='http://www.chicagonow.com/listing-beyond-forty/files/2013/02/Google-Plus-Generic-Avatar-Red.jpg'>
+        </ion-thumbnail>
+        <h2>Jack</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'messages'">
+      <ion-item class="item-text-wrap">
+        <ion-thumbnail item-left>
+          <img src='http://www.chicagonow.com/listing-beyond-forty/files/2013/02/Google-Plus-Generic-Avatar-Red.jpg'>
+        </ion-thumbnail>
+        <h2>Jack</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'notifications'">
+      <ion-item>
+        Jesse commented on your answer.
+        <ion-note>5 minutes ago</ion-note>
+      </ion-item>
+      <ion-item>
+        Vivian upvoted on your answer.
+        <ion-note>10 minutes ago</ion-note>
+      </ion-item>
+      <ion-item>
+        Jesse commented on your answer.
+        <ion-note>15 minutes ago</ion-note>
+      </ion-item>
+      <ion-item>
+        Vivian upvoted on your answer.
+        <ion-note>20 minutes ago</ion-note>
+      </ion-item>
+      <ion-item>
+        Jesse commented on your answer.
+        <ion-note>25 minutes ago</ion-note>
+      </ion-item>
+      <ion-item>
+        Vivian upvoted on your answer.
+        <ion-note>30 minutes ago</ion-note>
+      </ion-item>
+      <ion-item>
+        Jesse commented on your answer.
+        <ion-note>35 minutes ago</ion-note>
+      </ion-item>
+      <ion-item>
+        Vivian upvoted on your answer.
+        <ion-note>40 minutes ago</ion-note>
+      </ion-item>
+      <ion-item>
+        Jesse commented on your answer.
+        <ion-note>45 minutes ago</ion-note>
+      </ion-item>
+      <ion-item>
+        Vivian upvoted on your answer.
+        <ion-note>50 minutes ago</ion-note>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-card>
+</ion-content>

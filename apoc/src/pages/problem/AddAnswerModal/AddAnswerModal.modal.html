@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons start>
+      <button ion-button (click)="tappedCancelComment()">
+        Cancel
+      </button>
+    </ion-buttons>
+    <ion-title>
+      Compose Answer
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="submitAnswerComment()">
+        Submit
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="card-background-container">
+  <ion-card>
+    <ion-item>
+      <ion-label stacked>Comments</ion-label>
+      <ion-textarea [(ngModel)]="activeAnswer.body"></ion-textarea>
+    </ion-item>
+
+    <ion-list-header>
+      Attachments
+    </ion-list-header>
+
+    <ion-item>
+      <button ion-button outline-button icon-left (click)="tappedAddImages()">
+        <ion-icon name="camera"></ion-icon> Add Image
+      </button>
+    </ion-item>
+  </ion-card>
+  <ion-card *ngFor="let image of activeAnswer.images; let i = index;">
+    <ion-fab top right (click)="tappedRemoveImage(image, i);">
+      <button ion-fab mini><ion-icon name="trash"></ion-icon></button>
+    </ion-fab>
+    <img [src]="image.image_url" />
+  </ion-card>
+</ion-content>

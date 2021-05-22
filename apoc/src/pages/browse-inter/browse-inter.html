@@ -1,0 +1,22 @@
+<ion-header primary>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ activeModifierData.name }}</ion-title>
+  </ion-navbar>
+  <ion-searchbar [(ngModel)]="filterQuery" debounce="800" placeholder="Search {{ activeModifierData.name }}"(ionInput)="filterItems($event)" (ionClear)="clearKeyword()"></ion-searchbar>
+  <!--<ion-searchbar color="primary" [(ngModel)]="filterQuery" debounce="800" placeholder="Search Categories" ></ion-searchbar>-->
+</ion-header>
+
+<!--<ion-list-header>-->
+<!--</ion-list-header>-->
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let inter of filteredItems" (click)="tappedProblem(inter)">
+      <p style="color: black;"> {{ inter.name }} </p>
+      <ion-badge color="light" item-right> {{ inter.problems.length }} </ion-badge>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

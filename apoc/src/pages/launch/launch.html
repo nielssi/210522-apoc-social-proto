@@ -1,0 +1,38 @@
+<!--
+  Generated template for the Launch page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<!--<ion-content padding class="Launch splash-background spinner">-->
+<ion-content padding class="Launch splash-background spinner">
+  <div class="launch-upper-container">
+    <img src="">
+  </div>
+  <div class="launch-lower-container">
+    <ion-grid>
+      <ion-row>
+        <ion-col width-50>
+          <button danger ion-button class="pull-right" (click)="tappedLogin()">
+            Sign in
+          </button>
+        </ion-col>
+        <ion-col width-50>
+          <button danger ion-button class="pull-left" (click)="tappedSignUp()">
+            Sign up
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+            <div class="centered">
+              <button ion-button danger clear (click)="tappedViewWalkthrough()">
+                  Walkthrough
+              </button>
+            </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

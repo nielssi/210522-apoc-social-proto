@@ -1,0 +1,59 @@
+{
+  "Acylation": {
+    "Alkyne": {
+      "Radical": {
+        "Problem 38": "5883d5f62e2bdb0001d59c44",
+        "Problem 44": "5883d5f62e2bdb0001d59c4a",
+        "Problem 11": "5883d5f62e2bdb0001d59c29"
+      },
+      "Unradical": {
+        "Problem 49": "5883d5f62e2bdb0001d59c4f",
+        "Problem 42": "5883d5f62e2bdb0001d59c48"
+      }
+    },
+    "C=O/C=N/C=S": { "nothing": { "nothing": { "nothing": "id"}}},
+    "Ene": { "nothing": { "nothing": { "nothing": "id"}}},
+    "Heterocycle": { "nothing": { "nothing": { "nothing": "id"}}},
+    "Intramolecular": { "nothing": { "nothing": { "nothing": "id"}}},
+    "Michael": { "nothing": { "nothing": { "nothing": "id"}}},
+    "S": { "nothing": { "nothing": { "nothing": "id"}}}
+  },
+  "Alkylation": {
+    "Addition": "",
+    "Alkyne": {
+      "Radical": {
+        "Problem 52": "id"
+      }
+    },
+    "C=O/C=N/C=S": { "nothing": { "nothing": { "nothing": "id"}}},
+    "Ene": { "nothing": { "nothing": { "nothing": "id"}}},
+    "Heterocycle": { "nothing": { "nothing": { "nothing": "id"}}},
+    "Intramolecular": { "nothing": { "nothing": { "nothing": "id"}}}
+  },
+  "Bonding": {
+    "Addition": "",
+    "Alkyne": {
+      "Radical": {
+        "Problem 52": "id"
+      }
+    },
+    "C=O/C=N/C=S": { "nothing": { "nothing": { "nothing": "id"}}},
+    "Ene": { "nothing": { "nothing": { "nothing": "id"}}},
+    "Heterocycle": { "nothing": { "nothing": { "nothing": "id"}}},
+    "Intramolecular": { "nothing": { "nothing": { "nothing": "id"}}}
+  },
+  "Condensation": "",
+  "Carboxylation/Decarb": "",
+  "Conformational Analysis": "",
+  "Cyclization": "",
+  "Degradation": "",
+  "Elimination": "",
+  "FMO-Analysis": "",
+  "Fragmentation": "",
+  "Glycosidation": "",
+  "Halogenation": "",
+  "Hydride Transfer": "",
+  "Insertion": "",
+  "Inversion Operators": ""
+}
+

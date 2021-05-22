@@ -1,0 +1,57 @@
+<!--
+  Generated template for the Signup page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content padding class="Signup splash-background">
+  <ion-grid>
+    <ion-row center style="min-height: 150px;">
+      <!-- <button ion-button clear mini color="primary" (click)="tappedBackButton()" style="position:absolute; top:0px; margin-left:5px;">Back</button> -->
+    </ion-row>
+    <ion-row center>
+      <ion-col>
+        <div class="signup-upper-container">
+          <form #emailSignupForm="ngForm" (ngSubmit)="submitEmailSignupForm(emailSignupForm)" class="transparent"  novalidate>
+            <ion-list class="transparent" ngControlGroup="signUpData">
+              <ion-item class="transparent">
+                <ion-label floating>Username</ion-label>
+                <ion-input type="text" name="name" ngControl="name" [(ngModel)]="userSignUp.name" required></ion-input>
+              </ion-item>
+
+              <ion-item class="transparent">
+                <ion-label floating>Email</ion-label>
+                <ion-input type="email" class="transparent" name="email" ngControl="email" [(ngModel)]="userSignUp.email" appEmailValidator></ion-input>
+              </ion-item>
+
+              <ion-item class="transparent">
+                <ion-label floating>Password</ion-label>
+                <ion-input type="password" class="transparent" name="password" ngControl="password" [(ngModel)]="userSignUp.password" required></ion-input>
+              </ion-item>
+              &nbsp;
+              <div class="centered">
+                <button ion-button block danger type="submit">
+                  Sign Up
+                </button>
+              </div>
+              <ion-item class="transparent">
+                <div class="centered">
+                  <button ion-button danger outline type="button" (click)="tappedAlreadyHaveAnAccount()" >
+                    Already Have an Account?
+                  </button>
+                </div>
+              </ion-item>
+              <ion-item class="transparent">
+                <div class="centered">
+                  <button ion-button danger outline type="button" (click)="tappedAdditionalOptions()" >
+                    Additional Sign Up Options
+                  </button>
+                </div>
+              </ion-item>
+            </ion-list>
+          </form>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,17 @@
+<ion-header primary>
+  <ion-navbar color="primary">
+    <ion-buttons start>
+      <button ion-button start (click)="close()">
+        Back
+      </button>
+    </ion-buttons>
+    <ion-title>Solution</ion-title>
+    <ion-buttons end>
+
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content (click)="close()" >
+  <br />
+  <img align="middle"  [src]="getLocalAssetUrl(activeProblem.gp_id)"  >
+</ion-content>

@@ -1,0 +1,63 @@
+<ion-header primary>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>About</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="About">
+  <ion-list>
+    <ion-card>
+      <ion-card-content>
+        <p>Version: 0.6</p>
+        <p>By: Niels Sievertsen, niels.sievertsen@org.chem.ethz.ch</p>
+        <p>Laboratory of Organic Chemistry, Vladimir-Prelog-Weg 3, HCI H336, 8093 Zurich, Switzerland</p>
+      </ion-card-content>
+    </ion-card>
+    <ion-card (click)="tappedCredit()">
+      <ion-card-content>
+        <p>Platform Architecture and Engineering: Jesse Spencer, Cindt LLC</p>
+        <ion-row>
+          <ion-col center text-center>
+              <ion-icon name='logo-html5' color="primary"></ion-icon>
+          </ion-col>
+          <ion-col center text-center>
+              <ion-icon name='logo-angular' color="primary"></ion-icon>
+          </ion-col>
+          <ion-col center text-center>
+              <ion-icon name='logo-css3' color="primary"></ion-icon>
+          </ion-col>
+          <ion-col center text-center>
+              <ion-icon name='logo-nodejs' color="primary"></ion-icon>
+          </ion-col>
+          <ion-col center text-center>
+              <ion-icon name='logo-sass' color="primary"></ion-icon>
+          </ion-col>
+          <ion-col center text-center>
+              <ion-icon name='logo-github' color="primary"></ion-icon>
+          </ion-col>
+          <ion-col center text-center>
+              <ion-icon name='ionic' color="primary"></ion-icon>
+          </ion-col>
+          <ion-col center text-center>
+              <ion-icon name='ionitron' color="primary"></ion-icon>
+          </ion-col>
+            <ion-col center text-center>
+                <ion-icon name='logo-android' color="primary"></ion-icon>
+            </ion-col>
+            <ion-col center text-center>
+                <ion-icon name='logo-apple' color="primary"></ion-icon>
+            </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content>
+        <p style="text-align:justify; text-justify: inter-word;">For students of advanced organic chemistry around the world, learning material is scarce and textbooks are outdated. To overcome this very current problem, hundreds of unique questions and tricky chemical transformations focussing on topics such as organic synthesis, conformational analysis, and many others, have been collected for apoc social - problems in organic chemistry. Solving these problems yourself is challenging and can be frustrating when lacking communication with peers. Therefore, apoc social has been developed. apoc social allows you to get together with fellow chemists and discuss sophisticated problems in organic chemistry. Niels Sievertsen and Erick M. Carreira are indebted to Prof. Dr. David A. Evans and his former students at Harvard University for the initial contribution of close to 950 questions, allowing for a kick off of this ambitious project. Prof. Dr. Erick M. Carreira and his research group at ETH Zurich were crucial to the genesis of an apoc prototype, enabling early testing within both the research group and in undergraduate teaching environments. Generous financial assistance through an Innovedum grant awarded by ETH Zurich allowed apoc to evolve into a fully social learning experience, connecting organic chemistry students across the world.</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+</ion-content>

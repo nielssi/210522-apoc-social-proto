@@ -1,0 +1,113 @@
+<!--
+  Generated template for the Problem page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header primary>
+  <ion-navbar color="primary">
+    <ion-buttons start>
+      <button ion-button start menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{activeProblem.name}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="tappedRateProblemDifficulty(activeProblem, $event)">
+        <ion-icon light name='ios-speedometer-outline'></ion-icon> {{activeProblem.myRating ? activeProblem.myRating : activeProblem.difficulty}}
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="Problem">
+  <ion-card class="theme-problem">
+    <ion-item light class="theme-problem-header">
+      <p center>Contributor: <b>{{activeProblem.contributor}}</b></p>
+    </ion-item>
+
+    <img [src]="getLocalAssetUrl(activeProblem.gp_id)">
+    <ion-card-content>
+      <p style="text-align: justify;">{{activeProblem.text}}</p>
+      <div *ngIf="activeProblem.keywords.length > 0">
+      </div>
+      <ion-badge primary *ngFor="let keyword of activeProblem.keywords" style="margin-left:2px;">
+        {{keyword}}
+        <ion-icon light name="close-circle" (click)="tappedRemoveRecommendedKeywords(keyword)"></ion-icon>
+      </ion-badge>
+    </ion-card-content>
+    <ion-row class="theme-problem-footer">
+      <ion-col center text-center width-30>
+        <ion-note (click)="tappedAddRecommendedKeywords()">
+          <p style="color: white;">
+            <ion-icon name='ios-add-outline' color="primary"></ion-icon> Tags
+          </p>
+        </ion-note>
+      </ion-col>
+
+      <ion-col center text-center width-30>
+        <ion-note (click)="tappedBookmarkProblem(activeProblem)" *ngIf="!activeProblem.is_bookmarked">
+          <p style="color: white;">
+            <ion-icon name='ios-bookmark-outline' color="primary"></ion-icon> Bookmark
+          </p>
+        </ion-note>
+
+        <ion-note (click)="tappedBookmarkProblem(activeProblem)" *ngIf="activeProblem.is_bookmarked">
+          <p style="color: white;">
+            <ion-icon name='ios-bookmark' color="primary"></ion-icon> Remove
+          </p>
+        </ion-note>
+      </ion-col>
+
+      <ion-col center text-center width-30>
+        <ion-note (click)="tappedMarkProblemComplete(activeProblem)" *ngIf="!activeProblem.is_solved">
+          <p style="color: white;">
+            <ion-icon name='checkmark' color="primary"></ion-icon> Solved
+          </p>
+        </ion-note>
+
+        <ion-note (click)="tappedMarkProblemComplete(activeProblem)" *ngIf="activeProblem.is_solved">
+          <p style="color: white;">
+           <ion-icon name='close' color="primary"></ion-icon> Unsolved
+          </p>
+        </ion-note>
+      </ion-col>
+
+      <ion-col center text-center width-10>
+        <ion-note (click)="tappedMore(activeProblem)">
+          <ion-icon name='ios-list-box-outline' color="primary"></ion-icon>
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-list-header>
+    Discussion Board
+  </ion-list-header>
+  <ion-card *ngFor="let comment of activeProblem.comments; let i = index;" (click)="tappedComment(comment)">
+    <ion-item light class="theme-comment-header" (press)="didPressComment(comment, i)">
+      <h2 (click)="tappedItemInHistory(comment)" >{{comment.author_name}}</h2>
+      <p>{{comment.created_at | timeAgo}}</p>
+      <button *ngIf="(comment.author != currentUserId)" ion-button small item-right (click)="tappedUpVote(comment)">
+        <span *ngIf="comment.ratings && comment.up_votes"><ion-icon name="thumbs-up"></ion-icon> {{comment.up_votes.length}}</span>
+      </button>
+      <button *ngIf="(comment.author != currentUserId)" ion-button small item-right (click)="tappedDownVote(comment)">
+        <span *ngIf="comment.ratings && comment.down_votes"><ion-icon name="thumbs-down"></ion-icon> {{comment.down_votes.length}}</span>
+      </button>
+    </ion-item>
+    <ion-card-content  (press)="didPressComment(comment, i)">
+      <p>{{comment.body}}</p>
+      <img *ngFor="let image of comment.images " [src]="image.image_url" />
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="activeProblem.comments.length==0">
+    <ion-card-content>
+      <ion-row>
+        <ion-col center text-center (click)="tappedAddAnAnswer(activeProblem, $event)">
+            <ion-icon name='ios-sad-outline' color="primary"><p>Looks Like Nobody Solved {{activeProblem.name}}. Be the First!</p></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <button ion-button danger large full (click)="tappedAddAnAnswer(activeProblem, $event)">ADD AN ANSWER</button>
+</ion-content>

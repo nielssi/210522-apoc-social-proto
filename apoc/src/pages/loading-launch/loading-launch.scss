@@ -1,0 +1,8 @@
+@import "../../theme/variables.scss";
+
+p {
+  color: map-get($colors, primary);
+}
+
+
+

@@ -1,0 +1,86 @@
+<ion-header primary>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ activeInterData.name }}</ion-title>
+  </ion-navbar>
+  <!--<ion-searchbar [(ngModel)]="filterQuery" debounce="800" placeholder="Search {{ activeInterName }}"(ionInput)="addKeyword($event)" (ionClear)="clearKeyword()"></ion-searchbar>-->
+  <!--<ion-searchbar color="primary" [(ngModel)]="filterQuery" debounce="800" placeholder="Search Categories" ></ion-searchbar>-->
+</ion-header>
+
+<!--<ion-list-header>-->
+<!--</ion-list-header>-->
+<!--<ion-content>-->
+  <!--<ion-list>-->
+    <!--<ion-item *ngFor="let problem of problemsFull" (click)="tappedProblem(problem)">-->
+      <!--<p style="color: black;"> {{ problem.name }} </p>-->
+      <!--&lt;!&ndash;<ion-badge color="light" item-right> {{ getSubInterLength(inter) }} </ion-badge>&ndash;&gt;-->
+      <!--<ion-icon name="arrow-round-forward" item-right></ion-icon>-->
+    <!--</ion-item>-->
+  <!--</ion-list>-->
+
+<!--</ion-content>-->
+
+<ion-content padding>
+ <ion-list>
+  <ion-card *ngFor="let problem of problemsFull; let i = index;" (click)="tappedProblem(problem)">
+    <ion-item class="theme-problem-header">
+
+      <h2>Problem {{problem.gp_id}}</h2>
+      <p>Contributor: <b>{{problem.contributor}}</b></p>
+      <ion-badge item-right>{{problem.updated_at | timeAgo}}</ion-badge>
+
+    </ion-item>
+    <ion-card-content>
+      <img [src]="getLocalAssetUrl(problem.gp_id)">
+      <!--<span *ngIf="activeKeywords.length > 0" >-->
+            <!--<ion-badge secondary *ngFor="let keyword of problem.keywords">{{keyword}}</ion-badge>-->
+        <!--</span>-->
+      <!--<p *ngIf="activeKeywords.length > 0" [innerHTML]="problem.text  | sanitizeHtml" ></p>-->
+    </ion-card-content>
+    <ion-row class="theme-problem-footer">
+      <ion-col  center text-center  width-33>
+        <button ion-button light clear small  text-center>
+          <p style="color: white;">
+            <ion-icon name='ios-speedometer-outline' color="primary"></ion-icon> {{problem.difficulty}}
+          </p>
+        </button>
+      </ion-col>
+      <ion-col  center light text-center  width-33>
+        <button ion-button light clear small  text-center>
+          <p style="color: white;">
+            <ion-icon name='ios-chatboxes-outline' color="primary"></ion-icon> {{problem.comments.length}}
+          </p>
+        </button>
+      </ion-col>
+      <ion-col center text-center width-33>
+        <ion-note>
+          <p style="color: white;">
+            <ion-icon name='ios-glasses-outline' color="primary"></ion-icon> {{problem.views}} views
+          </p>
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <!--<ion-card *ngIf="problemsFull.length < 1">-->
+    <!--<ion-card-content>-->
+      <!--<ion-row>-->
+        <!--<ion-col center text-center>-->
+          <!--<ion-icon name='ios-sad-outline' color="primary"><p>No Problems Match Your Query</p></ion-icon>-->
+        <!--</ion-col>-->
+      <!--</ion-row>-->
+    <!--</ion-card-content>-->
+  <!--</ion-card>-->
+
+   <div style="height: 100%; width: 100%; " *ngIf="problemsFull.length < 1">
+     <!--<p>{{  $window.innerHeight }}</p>-->
+     <!--<img style="position: absolute; margin-left: -50px; margin-top: -50px; width: 100px; height: 100px; left: 50%; top: 50%;" src="assets/icon/apoc_icon_512.png" />-->
+     <ion-spinner style="position: absolute; margin-left: -14px; margin-top: -14px; left: 50%; top: 50%;"></ion-spinner>
+     <!--<p style="position: absolute; /*margin-left: -14px; margin-top: -14px;*/ margin-left: -33px; margin-top: -22px; left: 50%; top: 65%;">Loading ...</p>-->
+   </div>
+
+  </ion-list>
+</ion-content>
+
